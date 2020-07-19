@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import { Container, Spinner, Row, Col, Alert, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import DatePicker from 'reactstrap-date-picker';
-import Logo from "../Images/logo.png";
-
+import { Container, Spinner, Row, Col, Alert, Button, Form, FormGroup, Input } from 'reactstrap';
 import Background from '../Images/background.jpg';
+import { Redirect } from 'react-router';
 
 var sectionStyle = {
   width: "100%",
@@ -71,9 +68,10 @@ export default class Login extends Component {
             alert: 0
         });
         if(!error){
-            // if()
-            
-             
+            this.setState({ 
+                loading: false 
+            });
+            return <Redirect push to="/menucards"/>;
         }
         else{
             this.setState({ 
